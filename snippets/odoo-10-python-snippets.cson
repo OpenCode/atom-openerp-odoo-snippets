@@ -1,0 +1,102 @@
+'.source.python':
+
+	'Odoo 10.0 Import':
+		'prefix': 'import_odoo_10'
+		'body': 'from odoo import models${1:, fields}${2:, api}'
+
+	'Odoo 10.0 Class':
+		'prefix': 'class_odoo_10'
+		'body': """
+			class $1(models.Model):
+
+				_name = '$2'
+				_description = '$3'
+
+				name = fields.Char()$100
+		"""
+
+	'Odoo 10.0 Class Inherit':
+		'prefix': 'class_inherit_odoo_10'
+		'body': """
+			class $1(models.Model):
+
+				_inherit = '$2'
+				$100
+		"""
+
+	'Odoo 10.0 Integer Field':
+		'prefix': 'field_integer_odoo_10'
+		'body': "$1 = fields.Integer(string='$2', $90)$100"
+
+	'Odoo 10.0 Float Field':
+		'prefix': 'field_float_odoo_10'
+		'body': "$1 = fields.Float(string='$2', $90)$100"
+
+	'Odoo 10.0 Char Field':
+		'prefix': 'field_char_odoo_10'
+		'body': "$1 = fields.Char(string='$2', $90)$100"
+
+	'Odoo 10.0 Text Field':
+		'prefix': 'field_text_odoo_10'
+		'body': "$1 = fields.Text(string='$2', $90)$100"
+
+	'Odoo 10.0 Many2one Field':
+		'prefix': 'field_many2one_odoo_10'
+		'body': "$1_id = fields.Many2one('$2', string=''$3', $90)$100"
+
+	'Odoo 10.0 One2many Field':
+		'prefix': 'field_one2many_odoo_10'
+		'body': """
+			$1_ids = fields.One2many(
+				'${2:class_relation}',
+				'${3:many2one_field}',
+				string='$4', $90)$100
+			"""
+
+	'Odoo 10.0 Many2many Field':
+		'prefix': 'field_many2many_odoo_10'
+		'body': "$1_ids = fields.Many2many('$2', string='$3', $90)$100"
+
+	'Odoo 10.0 Extended Many2many Field':
+		'prefix': 'field_many2many_extended_odoo_10'
+		'body': """
+			$1_ids = fields.Many2many(
+				string='$2',
+				comodel_name='$3',
+				relation='$4',
+				column1='$5',
+				column2='$6',$90
+			)$100
+			"""
+
+	'Odoo 10.0 Boolean Field':
+		'prefix': 'field_boolean_odoo_10'
+		'body': "$1 = fields.Boolean(string='$2', $90)$100"
+
+	'Odoo 10.0 HTML Field':
+		'prefix': 'field_html_odoo_10'
+		'body': "$1 = fields.Html(string='$2', $90)$100"
+
+	'Odoo 10.0 Date Field':
+		'prefix': 'field_date_odoo_10'
+		'body': "$1 = fields.Date(string='$2', $90)$100"
+
+	'Odoo 10.0 DateTime Field':
+		'prefix': 'field_datetime_odoo_10'
+		'body': "$1 = fields.Datetime(string='$2', $90)$100"
+
+	'Odoo 10.0 Selection Field':
+		'prefix': 'field_selection_odoo_10'
+		'body': """
+			$1 = fields.Selection(
+				selection=[
+					('$2', '$3'),
+					('$4', '$5'),
+					],
+				string='$6',$90
+			)$100
+			"""
+
+	'Odoo 10.0 Binary Field':
+		'prefix': 'field_binary_odoo_10'
+		'body': "$1 = fields.Binary(string='$2', $90)$100"

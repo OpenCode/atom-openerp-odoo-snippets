@@ -1,0 +1,185 @@
+'.text.xml':
+
+	'Odoo 10.0 Main':
+		'prefix': 'xml_odoo_10'
+		'body': """
+		<?xml version="1.0" encoding="utf-8"?>
+		<odoo>
+
+			$1
+
+		</odoo>
+		"""
+
+	'Odoo 10.0 Form View':
+		'prefix': 'form_odoo_10'
+		'body': """
+			<record id="$1_view_form" model="ir.ui.view">
+				<field name="name">$2.form</field>
+				<field name="model">$2</field>
+				<field name="arch" type="xml">
+					<form string="$3">
+						<sheet>
+							<group>
+								<field name="$4"/>$100
+							</group>
+						</sheet>
+					</form>
+				</field>
+			</record>
+		"""
+
+	'Odoo 10.0 Tree View':
+		'prefix': 'tree_odoo_10'
+		'body': """
+			<record id="$1_view_tree" model="ir.ui.view">
+				<field name="name">$2.tree</field>
+				<field name="model">$2</field>
+				<field name="arch" type="xml">
+					<tree string="$3">
+						<field name="$4"/>$100
+					</tree>
+				</field>
+			</record>
+		"""
+
+	'Odoo 10.0 Search View':
+		'prefix': 'search_odoo_10'
+		'body': """
+			<record id="$1_view_search" model="ir.ui.view">
+				<field name="name">$2.search</field>
+				<field name="model">$2</field>
+				<field name="arch" type="xml">
+					<tree string="$3">
+						<field name="$4"/>
+						<filter name="$5" string="$6" domain="[(\'$7\', \'=\', $8), ]"/>$100
+					</tree>
+				</field>
+			</record>
+		"""
+
+	'Odoo 10.0 Form View Inherit':
+		'prefix': 'form_inherit_odoo_10'
+		'body': """
+			<record id="$1" model="ir.ui.view">
+				<field name="name">$2.form</field>
+				<field name="model">$2</field>
+				<field name="inherit_id" ref="$3"/>
+				<field name="arch" type="xml">
+					<field name="$4" position="$5">
+						$6
+					</field>$100
+				</field>
+			</record>
+		"""
+
+	'Odoo 10.0 Tree View Inherit':
+		'prefix': 'tree_inherit_odoo_10'
+		'body': """
+			<record id="$1" model="ir.ui.view">
+				<field name="name">$2.form</field>
+				<field name="model">$2</field>
+				<field name="inherit_id" ref="$3"/>
+				<field name="arch" type="xml">
+					<field name="$4" position="$5">
+						$6
+					</field>$100
+				</field>
+			</record>
+		"""
+
+	'Odoo 10.0 Search View Inherit':
+		'prefix': 'search_inherit_odoo_10'
+		'body': """
+			<record id="$1" model="ir.ui.view">
+				<field name="name">$2.form</field>
+				<field name="model">$2</field>
+				<field name="inherit_id" ref="$3"/>
+				<field name="arch" type="xml">
+					<field name="$4" position="$5">
+						$6
+					</field>$100
+				</field>
+			</record>
+		"""
+
+	'Odoo 10.0 Form header':
+		'prefix': 'form_header_odoo_10'
+		'body': """
+			<header>
+				<button name="$1" type="${2:object}" string="$3"${4: class="oe_highlight"}${5: states="$6"}/>
+				<field name="state" widget="statusbar" statusbar_visible="$5"/>
+			</header>
+		"""
+
+	'Odoo 10.0 Action':
+		'prefix': 'action_odoo_10'
+		'body': """
+			<record id="$1_action" model="ir.actions.act_window">
+				<field name="name">$2</field>
+				<field name="res_model">$3</field>
+				<field name="view_mode">tree,form</field>
+				<field name="help" type="html">
+					<p class="oe_view_nocontent_create">
+						$4
+					</p>
+					<p>
+						$5
+					</p>
+				</field>
+			</record>
+		"""
+
+	'Odoo 10.0 Menuitem':
+		'prefix': 'menu_odoo_10'
+		'body': '<menuitem id="menu_$1" name="$2" sequence="$3"${4: parent="$5"}${6: action="$7"}/>'
+
+	'Odoo 10.0 Field':
+		'prefix': 'field_odoo_10'
+		'body': """
+			<field name="$1"/>
+		"""
+
+	'Odoo 10.0 Nested groups':
+		'prefix': 'group_nested_odoo_10'
+		'body': """
+			<group string="$1">
+				<group>
+					<field name="$2"/>
+				</group>
+				<group>
+					<field name="$3"/>
+				</group>
+			</group>
+		"""
+
+	'Odoo 10.0 Notebook':
+		'prefix': 'notebook_odoo_10'
+		'body': """
+			<notebook>
+				$1
+			</notebook>
+		"""
+
+	'Odoo 10.0 Page for Notebook':
+		'prefix': 'odoo_page'
+		'body': """
+			<page string="$1">
+				<group>
+					<field name="$2"/>
+				</group>
+			</page>
+		"""
+
+	'Odoo 10.0 Domain':
+		'prefix': 'domain_odoo_10'
+		'body': 'domain="[(\'$1\', \'=\', $2), ]"'
+
+	'Odoo 10.0 Chatter for Form':
+		'prefix': 'view_odoo_chatter'
+		'body': """
+			<div class="oe_chatter">
+				<field name="message_follower_ids" widget="mail_followers"/>
+				<field name="message_ids" widget="mail_thread"/>
+			</div>
+		"""
